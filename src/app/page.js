@@ -48,7 +48,7 @@ export default function HomePage() {
       slidesPerView={1} 
       loop={true} 
       autoplay={{
-        delay: 2000,
+        delay: 4000,
         disableOnInteraction: false,
       }}
     >
@@ -61,7 +61,7 @@ export default function HomePage() {
             <img
               src={event.image}
               alt={event.title}
-              className="rounded-lg shadow-lg w-fit h-96 object-cover hover:scale-105 transition-transform"
+              className="rounded-lg shadow-lg w-fit h-96 object-contain md:object-cover hover:scale-105 transition-transform"
             />
           </div>
         </SwiperSlide>
@@ -70,9 +70,9 @@ export default function HomePage() {
   );
 
   return (
-    <div className="max-w-7xl mx-auto py-8">
-      <section className="mb-10">
-        <h2 className="text-3xl font-bold mb-4 text-center">Ongoing Events</h2>
+    <div className="max-w-7xl mx-auto py-4 md:py-8">
+      <section className="mb-1 md:mb-16">
+        <h2 className="text-3xl font-bold -mb-16 md:mb-4 text-center">Ongoing Events</h2>
         {ongoingEvents.length > 0 ? (
           renderSwiper(ongoingEvents)
         ) : (
@@ -80,8 +80,8 @@ export default function HomePage() {
         )}
       </section>
 
-      <section className="mb-10">
-        <h2 className="text-3xl font-bold mb-4 text-center">Upcoming Events</h2>
+      <section className="mb-1 md:mb-16">
+        <h2 className="text-3xl font-bold -mb-16 md:mb-4 text-center">Upcoming Events</h2>
         {upcomingEvents.length > 0 ? (
           renderSwiper(upcomingEvents)
         ) : (
@@ -90,7 +90,7 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="text-3xl font-bold mb-4 text-center">Past Events</h2>
+        <h2 className="text-3xl font-bold -mb-16 md:mb-4 text-center">Past Events</h2>
         {pastEvents.length > 0 ? (
           renderSwiper(pastEvents)
         ) : (
