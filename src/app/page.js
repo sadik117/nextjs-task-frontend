@@ -1,7 +1,9 @@
-import Image from "next/image";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
+// import dayjs from "dayjs";
 
 export default function Home() {
-  return (
-    <h1>Hello Universe</h1>
-  );
+
+ <h1>Hello Universe!!</h1>
+
 }
