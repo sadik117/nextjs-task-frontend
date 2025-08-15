@@ -18,49 +18,45 @@ export default function AddEvent() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      // Create ISO strings for start and end times
-      const startAt = new Date(`${formData.date}T${formData.startTime}`);
-      const endAt = new Date(`${formData.date}T${formData.endTime}`);
+  const startAt = new Date(`${formData.date}T${formData.startTime}`);
+  const endAt = new Date(`${formData.date}T${formData.endTime}`);
 
-      const eventData = {
-        title: formData.title,
-        startAt: startAt.toISOString(),
-        endAt: endAt.toISOString(),
-        location: formData.location,
-        description: formData.description,
-        image: formData.image,
-      };
-
-      const res = await fetch("http://localhost:5000/events", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(eventData),
-      });
-
-      const data = await res.json(); 
-
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to add event");
-      }
-      alert("Event added successfully!");
-
-      setFormData({
-        title: "",
-        date: "",
-        startTime: "",
-        endTime: "",
-        location: "",
-        description: "",
-        image: "",
-      });
-    } catch (err) {
-      console.error("Error:", err);
-      alert(err.message || "Error adding event");
-    }
+  const eventData = {
+    title: formData.title,
+    startAt: startAt.toISOString(), 
+    endAt: endAt.toISOString(),     
+    location: formData.location,
+    description: formData.description,
+    image: formData.image,
   };
+
+  try {
+    const res = await fetch("http://localhost:5000/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(eventData),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Failed to add event");
+
+    alert("Event added successfully!");
+    setFormData({
+      title: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      location: "",
+      description: "",
+      image: "",
+    });
+  } catch (err) {
+    alert(err.message);
+  }
+};
+
 
   return (
     <div className="min-h-screen py-5 flex justify-center items-center bg-gray-100">
