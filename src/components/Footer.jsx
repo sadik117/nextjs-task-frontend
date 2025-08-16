@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 
@@ -11,8 +12,10 @@ const Footer = () => {
           {/* About Section */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center bg-white rounded-lg">
-              <img 
+              <Image 
                 src="/SGE-Logo.png" 
+                width={250}
+                height={50}
                 alt="Shabuj Global Education" 
                 className="h-12 w-auto"
               />
@@ -118,29 +121,12 @@ const Footer = () => {
                 <p>info@shabujglobal.edu</p>
               </div>
             </div>
-            
-            {/* Newsletter */}
-            <div className="mt-4">
-              <h4 className="text-sm font-medium mb-2">Subscribe to Newsletter</h4>
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="px-3 py-2 text-white text-sm rounded-l-md focus:outline-none w-full"
-                />
-                <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-md text-sm">
-                  Subscribe
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Copyright and Bottom Links */}
         <div className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Shabuj Global Education. All rights reserved.
-          </p>
+          <p>© 2025 Shabuj Global Education. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link href="/privacy-policy" className="text-gray-400 hover:text-white text-sm">
               Privacy Policy
