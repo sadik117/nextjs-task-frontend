@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Admin Dashboard",
+  description: "Admin dashboard for handling events",
+};
+
 export default function AdminDashboard() {
   return (
     <div className="min-h-screen flex bg-gray-100">
