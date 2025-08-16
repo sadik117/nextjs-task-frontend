@@ -18,7 +18,7 @@ const Events = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/events")
+      .get("https://sge-event-management.vercel.app/events")
       .then((res) => {
         const events = res.data;
         const now = new Date();

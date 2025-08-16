@@ -11,7 +11,7 @@ export default function EventDetails() {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:5000/events/${id}`)
+        .get(`https://sge-event-management.vercel.app/events/${id}`)
         .then((res) => setEvent(res.data))
         .catch((err) => console.error(err));
     }
